@@ -28,3 +28,8 @@ class Bill(models.Model):
     date = models.DateField()
     item_name=models.CharField(max_length=30)
     quantity = models.IntegerField()
+
+class Customer(models.Model):
+    customer_id=models.IntegerField
+    customer_name=models.CharField(max_length=30)
+    phone_no=models.CharField(max_length=10)
