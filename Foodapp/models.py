@@ -1,9 +1,15 @@
+from unicodedata import category
 from django.db import models
+from django.forms import CharField
 
 # Create your models here.
-class ItemModel(models.Model):
-    title=models.CharField(max_length=30)
-    image=models.ImageField(upload_to="images/")
-    description=models.TextField()
+class Category(models.Model):
+    category_id=models.IntegerField()
+    category_name=models.CharField(max_length=30)
+
+class Item(models.Model):
+    item_no=models.IntegerField()
+    item_name=models.CharField(max_length=30)
+    image=models.CharField(max_length=30)
     price=models.FloatField()
-    category=models.CharField(max_length=30)
+    category_id=models.IntegerField()

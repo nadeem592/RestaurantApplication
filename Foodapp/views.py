@@ -1,9 +1,13 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .models import ItemModel
-from .serializers import ItemSerializer
+from .models import Item,Category
+from .serializers import ItemSerializer,CategorySerializer
 from rest_framework import viewsets                       
 
-class ItemView(viewsets.ModelViewSet):  
+class Category(viewsets.ModelViewSet):  
+    serializer_class = CategorySerializer  
+    queryset = Category.objects.all()  
+
+class Item(viewsets.ModelViewSet):  
     serializer_class = ItemSerializer   
-    queryset = ItemModel.objects.all()  
+    queryset = Item.objects.all() 
