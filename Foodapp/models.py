@@ -21,3 +21,10 @@ class OrdersHistory(models.Model):
     date = DateField()
     item_name = models.CharField(max_length=50)
     quantity = models.IntegerField()
+
+class Bill(models.Model):
+    customer_name = models.CharField(max_length=30)
+    price = models.FloatField()
+    date = models.DateField()
+    item_name=models.CharField(max_length=30)
+    quantity = models.IntegerField()
