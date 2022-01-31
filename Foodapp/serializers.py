@@ -10,3 +10,4 @@ class ItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
         fields = ('item_no','item_name','image','price','category_id')
+
