@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path,include
 from Foodapp.views import Item,Category,Bill, Customer, OrderHistory
+from Foodapp.views import Item,Category,OrderHistory,Bill,Customer
 from django.conf.urls.static import static
 from django.conf import  settings
 from rest_framework import routers                             
