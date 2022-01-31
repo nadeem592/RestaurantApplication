@@ -16,9 +16,9 @@ class Item(models.Model):
     price=models.FloatField()
     category_id=models.IntegerField()
 
-class OrdersHistory(models.Model):
+class OrderHistory(models.Model):
     price = models.FloatField()
-    date = DateField()
+    date = models.DateField()
     item_name = models.CharField(max_length=50)
     quantity = models.IntegerField()
 
