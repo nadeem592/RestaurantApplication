@@ -1,7 +1,8 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .models import Item,Category
-from .serializers import ItemSerializer,CategorySerializer
+from itsdangerous import Serializer
+from .models import Item,Category, OrdersHistory, Bill,Customer
+from .serializers import ItemSerializer,CategorySerializer,OrderHistorySerializer,BillSerializer,CustomerSerializer
 from rest_framework import viewsets                       
 
 class Category(viewsets.ModelViewSet):  
@@ -11,3 +12,15 @@ class Category(viewsets.ModelViewSet):
 class Item(viewsets.ModelViewSet):  
     serializer_class = ItemSerializer   
     queryset = Item.objects.all() 
+
+class OrderHistory(viewsets.ModelViewSet):
+    serializer_class = OrderHistorySerializer
+    queryset = OrdersHistory.objects.all()
+
+class Bill(viewsets.ModelViewSet):
+    serializer_class = BillSerializer
+    queryset = Bill.objects.all()
+
+class Customer(viewsets.ModelViewSet):
+    serializer_class = CustomerSerializer
+    queryset = Customer.objects.all()
