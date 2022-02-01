@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'import_export',
     'corsheaders',
     'rest_framework',
+    'singupAndLogin',
 ]
 
 MIDDLEWARE = [
