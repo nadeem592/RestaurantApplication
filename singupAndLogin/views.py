@@ -93,7 +93,7 @@ def login(request):
         user = auth.authenticate(username=username,password=password)
         if user is not None:
             auth.login(request,user)
-            return render(request,'success.html')
+            return render(request,'index.html')
         else:
             messages.info(request,'Invalid Credentials')
             return redirect('login')
