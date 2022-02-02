@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
 import Menu from './Components/Menu';
 import Categories from './Components/Categories';
-<<<<<<< HEAD
 import items from './Components/data';
-=======
-import items from "./Components/data";
 import { Dropdown } from "react-bootstrap";
 import { HiOutlineViewList } from "react-icons/hi";
->>>>>>> a2997ef68e29669238c92ec9d20776782f6b5c41
 
 const allCategories = ["all", ...new Set(items.map((item) => item.category))];
 
