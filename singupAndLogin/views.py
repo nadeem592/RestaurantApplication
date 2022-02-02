@@ -88,11 +88,13 @@ def login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
-        # first_name = request.POST['first_name']
-        # last_name = request.POST['last_name']
+        #first_name = request.POST['first_name']
+        #last_name = request.POST['last_name']
         user = auth.authenticate(username=username,password=password)
         if user is not None:
+            request.session['username'] = username  
             auth.login(request,user)
+            #request.session['username'] = username  
             return render(request,'index.html')
         else:
             messages.info(request,'Invalid Credentials')
