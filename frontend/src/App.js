@@ -3,7 +3,7 @@ import Menu from './Components/Menu';
 import Categories from './Components/Categories';
 import items from './Components/data';
 import { Dropdown } from "react-bootstrap";
-// import { HiOutlineViewList } from "react-icons/hi";
+import { HiOutlineViewList } from "react-icons/hi";
 
 const allCategories = ["all", ...new Set(items.map((item) => item.category))];
 
@@ -28,7 +28,7 @@ function App() {
           id="dropdown-basic"
           style={{ textAlign: "right" }}
         >
-          {/* <HiOutlineViewList /> */}
+           <HiOutlineViewList /> 
         </Dropdown.Toggle>
 
         <Dropdown.Menu>

@@ -2,7 +2,6 @@
 
 from django.db import migrations, models
 
-
 class Migration(migrations.Migration):
 
     dependencies = [
@@ -29,7 +28,7 @@ class Migration(migrations.Migration):
                 ('phone_no', models.CharField(max_length=10)),
             ],
         ),
-        migrations.CreateModel(
+migrations.CreateModel(
             name='OrdersHistory',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
@@ -39,3 +38,4 @@ class Migration(migrations.Migration):
             ],
         ),
     ]
+
