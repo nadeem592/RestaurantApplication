@@ -28,7 +28,7 @@ function App() {
           id="dropdown-basic"
           style={{ textAlign: "right" }}
         >
-          <HiOutlineViewList />
+          {/* <HiOutlineViewList /> */}
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
