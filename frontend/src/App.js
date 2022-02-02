@@ -3,7 +3,7 @@ import Menu from './Components/Menu';
 import Categories from './Components/Categories';
 import items from './Components/data';
 import { Dropdown } from "react-bootstrap";
-import { HiOutlineViewList } from "react-icons/hi";
+import { HiUser } from "react-icons/hi";
 
 const allCategories = ["all", ...new Set(items.map((item) => item.category))];
 
@@ -21,14 +21,15 @@ function App() {
   };
 
   return (
-    <div>
+    <div >
+      <div align="right">
       <Dropdown>
         <Dropdown.Toggle
           variant="secondary"
           id="dropdown-basic"
           style={{ textAlign: "right" }}
         >
-           <HiOutlineViewList /> 
+           <HiUser /> 
         </Dropdown.Toggle>
 
         <Dropdown.Menu>
@@ -36,6 +37,7 @@ function App() {
           <Dropdown.Item href="#/action-2">Logout</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
+      </div>
       <main>
         <section className="menu section">
           <div className="title">
