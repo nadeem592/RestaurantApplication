@@ -1,5 +1,5 @@
 const menu = [
-<<<<<<< HEAD
+
     {
         "id": "1",
         "title": "buttermilk pancakes",
@@ -115,7 +115,6 @@ const menu = [
 ]   
 export default menu;
 
-=======
   {
     id: "1",
     title: "buttermilk pancakes",
@@ -216,4 +215,3 @@ export default menu;
   },
 ];
 export default menu;
->>>>>>> a2997ef68e29669238c92ec9d20776782f6b5c41
