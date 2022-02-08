@@ -1,5 +1,6 @@
 import React from 'react';
 import {useCart} from "react-use-cart";
+
 const Cart = () => {
     const {
         isEmpty,
@@ -14,7 +15,7 @@ const Cart = () => {
     // if(isEmpty) return <h1 className="text-center">Your cart is empty</h1>
   return (
   <div>
-    <section className='py-4 container'>
+    <section className='py-4 container' href="123">
         <div className='row justify-content-center'>
             <div className='col-12'>
                 <h5>Cart ({totalUniqueItems})total Items : ({totalItems})</h5>

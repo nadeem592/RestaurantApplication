@@ -4,8 +4,9 @@ import { useCart } from "react-use-cart"
  const Itemcard = (props) => {
       const { addItem } = useCart();
   return (
+    
       <div className='col-11 col-md-6 col-lg-3 mx-0 mb-4'>
-          <div class="card p-0 overflow-hidden h-100 shadow">
+          <div class="card p-3 overflow-hidden h-100 shadow">
               <img src={require(`./images/item-${props.id}.jpeg`)} style={{'width':'100%','height':'200px'}} alt={props.title} class="card-img-top img-fluid"/>
               <div class="card-body text-center">
                 <h5 class="card-title">{props.title}</h5>
@@ -18,6 +19,7 @@ import { useCart } from "react-use-cart"
               </div>
           </div>
       </div>
+      
   );
 };
 export default Itemcard;

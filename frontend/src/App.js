@@ -7,7 +7,7 @@ const App = () => {
     <>
     <CartProvider>
     <Home/>
-    <Cart/>
+    
     </CartProvider>
 
     </>
