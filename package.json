@@ -1,10 +1,9 @@
 {
   "dependencies": {
-<<<<<<< HEAD
+
     "bootstrap": "^3.4.1",
-    "react-bootstrap": "^0.32.4"
-=======
+    "react-bootstrap": "^0.32.4",
     "react-icons": "^4.3.1"
->>>>>>> 31e195678ec5617d871b1578a63eb8d4d6a22c37
+
   }
 }
