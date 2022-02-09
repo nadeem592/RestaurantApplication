@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from 'react';
 import Home from "./Components/Home"
 import Cart from "./Components/Cart"
@@ -8,63 +7,11 @@ const App = () => {
     <>
     <CartProvider>
     <Home/>
-    
+
     </CartProvider>
 
     </>
-=======
-import React, { useState } from 'react';
-import Menu from './Components/Menu';
-import Categories from './Components/Categories';
-import items from './Components/data';
-import { Dropdown } from "react-bootstrap";
-import { HiUser } from "react-icons/hi";
-
-const allCategories = ["all", ...new Set(items.map((item) => item.category))];
-
-function App() {
-  const [menuItems, setMenuItems] = useState(items);
-  const [categories, setCategories] = useState(allCategories);
-
-  const filterItems = (category) => {
-    if (category === "all") {
-      setMenuItems(items);
-      return;
-    }
-    const newItems = items.filter((item) => item.category === category);
-    setMenuItems(newItems);
-  };
-
-  return (
-    <div >
-      <div align="right">
-      <Dropdown>
-        <Dropdown.Toggle
-          variant="secondary"
-          id="dropdown-basic"
-          style={{ textAlign: "right" }}
-        >
-           <HiUser /> 
-        </Dropdown.Toggle>
-
-        <Dropdown.Menu>
-          <Dropdown.Item href="#/action-1">Orders History</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">Logout</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
-      </div>
-      <main>
-        <section className="menu section">
-          <div className="title">
-            <h2>our menu</h2>
-            <div className="underline"></div>
-          </div>
-          <Categories categories={categories} filterItems={filterItems} />
-          <Menu items={menuItems} />
-        </section>
-      </main>
-    </div>
->>>>>>> 31e195678ec5617d871b1578a63eb8d4d6a22c37
+  
   );
 };
 export default App;

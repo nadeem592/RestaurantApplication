@@ -1,5 +1,5 @@
 import React from 'react';
-import "./Nav.css";
+
 /* import { Button, Dropdown, Navbar } from "react-bootstrap";
 import { HiUser } from "react-icons/hi"; */
 import Cart from './Cart';
