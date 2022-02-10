@@ -1,0 +1,62 @@
+.sticky-div {
+    background-color:"";
+    position: sticky;
+    top: 0px;
+    padding: 10px 0px;
+}
+ 
+.start {
+    height: 100px;
+}
+ 
+.end {
+    height: 500px;
+}
+
+.container {
+
+    display: flex;
+  
+    flex-direction: column;
+  
+  }
+  
+  .left {
+  
+    height: 400px;
+  
+    display: block;
+  
+    width: 100%;
+  
+    overflow-y: scroll;
+  
+  }
+  
+  .right {
+  
+    height: 400px;
+  
+    display: block;
+  
+    width: 100%;
+  
+    overflow-y: scroll;
+  
+  }
+  
+  
+  
+  .header {
+  
+    padding: 50px;
+  
+    text-align: center;
+  
+    background: #051a36;
+  
+    color: rgb(41, 5, 65);
+  
+    font-size: 30px;
+  
+  }
