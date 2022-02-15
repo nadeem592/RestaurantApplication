@@ -6,12 +6,16 @@ import "./styles.css";
 import { BrowserRouter, Router, Switch, Route, Routes } from "react-router-dom";
 import LoginSignup from "./Components/LoginSignup";
 import FinalCheckout from "./Components/FinalCheckout";
+import Login from "./Components/Login";
+import Register from "./Components/Register";
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
         <Routes>
+          <Route path="/register" exact element={<Register />} />
+          <Route path="/login" exact element={<Login />} />
           <Route
             path="/"
             exact
