@@ -113,7 +113,7 @@ const Register = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    fetch("http://127.0.0.1:7000/api/sign/", {
+    fetch("http://127.0.0.1:7001/api/register/", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -121,7 +121,6 @@ const Register = () => {
         Accept: "application/json",
       },
     });
-    localStorage.setItem("user-info", JSON.stringify(data));
     history("/login");
     alert("Registered Successfully.!");
   };
@@ -131,21 +130,11 @@ const Register = () => {
       <form onSubmit={submitHandler}>
         <input
           type="text"
-          name="firstname"
-          value={firstname}
+          name="username"
+          value={username}
           onChange={changeHandler}
           className="form-control"
-          placeholder="Firstname"
-          required
-        />
-        <br />
-        <input
-          type="text"
-          name="lastname"
-          value={lastname}
-          onChange={changeHandler}
-          className="form-control"
-          placeholder="Lastname"
+          placeholder="Username"
           required
         />
         <br />
@@ -160,34 +149,12 @@ const Register = () => {
         />
         <br />
         <input
-          type="text"
-          name="username"
-          value={username}
-          onChange={changeHandler}
-          className="form-control"
-          placeholder="Username"
-          required
-        />
-        <br />
-
-        <input
           type="password"
           name="password"
           value={password}
           onChange={changeHandler}
           className="form-control"
           placeholder="Password"
-          required
-        />
-        <br />
-
-        <input
-          type="password"
-          name="confirm_password"
-          value={confirm_password}
-          onChange={changeHandler}
-          className="form-control"
-          placeholder="Confirm Password"
           required
         />
         <br />
