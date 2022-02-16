@@ -14,17 +14,23 @@ function Login() {
     setData({ ...data, [e.target.name]: e.target.value });
   };
   const submitHandler = (e) => {
-    fetch("http://127.0.0.1:7000/api/sign/", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    });
-
-    localStorage.setItem("user-info", JSON.stringify(data));
-    history("/home");
+     fetch("http://127.0.0.1:7001/api/login/", {
+       method: "POST",
+       body: JSON.stringify(data),
+       headers: {
+         "Content-Type": "application/json",
+         Accept: "application/json",
+       },
+     })
+       .then((response) => {
+         if (response.status >= 400) {
+           history("/login");
+           return alert("Invalid Credentials..!");
+         }
+       })
+       .then(history("/home"));
+       
+      
   };
   return (
     <div>
