@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
@@ -14,27 +14,28 @@ function Login() {
     setData({ ...data, [e.target.name]: e.target.value });
   };
   const submitHandler = (e) => {
-     fetch("http://127.0.0.1:7001/api/login/", {
-       method: "POST",
-       body: JSON.stringify(data),
-       headers: {
-         "Content-Type": "application/json",
-         Accept: "application/json",
-       },
-     })
-       .then((response) => {
-         if (response.status >= 400) {
-           history("/login");
-           return alert("Invalid Credentials..!");
-         }
-       })
-       .then(history("/home"));
-       
-      
+    localStorage.setItem("logged-user", username);
+    e.preventDefault();
+    fetch("http://127.0.0.1:7001/api/login/", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          history("/home");
+        } else {
+          throw new Error("Invalid Credentials..!");
+        }
+      })
+      .catch(alert);
   };
   return (
     <div>
-      <form onSubmit={submitHandler}>
+      <form>
         <div className="col-sm-6 offset-sm-3">
           <h1 align="center">Login</h1>
           <input
@@ -58,8 +59,9 @@ function Login() {
           />
           <br />
           <input
-            type="submit"
+            type="button"
             value="Login"
+            onClick={submitHandler}
             className="btn btn-primary"
           ></input>
         </div>

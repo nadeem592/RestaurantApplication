@@ -8,6 +8,7 @@ import { Link } from 'react-bootstrap/lib/Navbar';
 import Nav from './Nav';
 import Cart from './Cart';
 import Checkout from "./Checkout";
+//import data from "./Login";
 
 const allCategories = ["all", ...new Set(items.map((item) => item.category))];
 
@@ -26,6 +27,10 @@ function Home() {
   };
   return (
     <>
+      <h3>
+      <span class="badge badge-pill badge-primary">
+        welcome, {localStorage.getItem("logged-user")}
+      </span></h3>
       <div align="right">
         <a class="btn btn-primary" href={"/cart"} role="button">
           <h3>
@@ -36,7 +41,7 @@ function Home() {
         </a>
       </div>
       <div align="right"></div>
-      <h1 className="text-center mt-3">Our Menu</h1>
+      <h1 className="text-center mt-3">Our Menu </h1>
       <Categories categories={categories} filterItems={filterItems} />
       <section className="py-4 container">
         <div className="row justify-content-center">

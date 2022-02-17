@@ -109,10 +109,10 @@ const Register = () => {
   const changeHandler = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
-
+  
   const submitHandler = (e) => {
-    e.preventDefault();
-
+    localStorage.setItem("username", username);
+    localStorage.setItem("email", email);
     fetch("http://127.0.0.1:7001/api/register/", {
       method: "POST",
       body: JSON.stringify(data),
@@ -120,14 +120,25 @@ const Register = () => {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-    });
-    history("/login");
-    alert("Registered Successfully.!");
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          alert("Registered Sccessfully.!");
+          history("/login");
+        } else {
+          if (localStorage.getItem("username") === username) {
+            alert("username already exists");
+          } else {
+            throw new Error("Email Taken");
+          }
+        }
+      })
+      .catch(alert);
   };
   return (
-    <div className="col-sm-6 offset-sm-3" align="center">
+    <div className="col-sm-6 offset-sm-3">
       <h1 align="center">Signup</h1>
-      <form onSubmit={submitHandler}>
+      <form>
         <input
           type="text"
           name="username"
@@ -137,9 +148,12 @@ const Register = () => {
           placeholder="Username"
           required
         />
+        <span class="help-block">
+          Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.
+        </span>
         <br />
         <input
-          type="text"
+          type="email"
           name="email"
           value={email}
           onChange={changeHandler}
@@ -159,7 +173,14 @@ const Register = () => {
         />
         <br />
 
-        <input type="submit" name="submit" className="btn btn-primary" />
+        <div align="center">
+          <input
+            type="button"
+            onClick={submitHandler}
+            value="Register"
+            className="btn btn-primary"
+          />
+        </div>
       </form>
     </div>
   );
