@@ -64,6 +64,9 @@ function Login() {
             onClick={submitHandler}
             className="btn btn-primary"
           ></input>
+          <h3>
+            Don't have account.? <a href={"/register"}>Signup Here</a>
+          </h3>
         </div>
       </form>
     </div>

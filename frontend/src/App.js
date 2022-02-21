@@ -8,6 +8,7 @@ import LoginSignup from "./Components/LoginSignup";
 import FinalCheckout from "./Components/FinalCheckout";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
+import OrdersHistory from "./Components/OrdersHistory";
 
 const App = () => {
   return (
@@ -51,6 +52,7 @@ const App = () => {
               </CartProvider>
             }
           ></Route>
+          <Route path="/history" exact element={<OrdersHistory />}></Route>
         </Routes>
       </BrowserRouter>
     </>

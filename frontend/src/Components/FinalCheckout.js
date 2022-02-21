@@ -1,7 +1,9 @@
 import React from "react";
 import Checkout from "./Checkout";
+import { useCart } from "react-use-cart";
 
 function FinalCheckout() {
+  const { emptyCart } = useCart();
   return (
     <nav>
       <div className="navbox">
@@ -13,9 +15,22 @@ function FinalCheckout() {
             Order Summary
           </div>
           <Checkout />
-          <h2 align="center" style={{ color: "blue", fontFamily: "cursive" }}>
-            Thanks for your Order ..!!
-          </h2>
+
+          <hr />
+          <div align="center">
+            <a href={"/home"} role="button" className="btn btn-warning">
+              Home
+            </a>
+            {}
+            <a
+              href={"/login"}
+              role="button"
+              className="btn btn-danger"
+              onClick={emptyCart}
+            >
+              Logout
+            </a>
+          </div>
         </div>
       </div>
     </nav>
