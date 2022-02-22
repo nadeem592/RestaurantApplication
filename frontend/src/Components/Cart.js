@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import { useCart } from "react-use-cart";
 import Checkout from "./Checkout";
 import Moment from "moment";
+import { useNavigate } from "react-router-dom";
+
 const Cart = () => {
+  const history = useNavigate();
+
   const {
     isEmpty,
     totalUniqueItems,
@@ -14,36 +18,36 @@ const Cart = () => {
     emptyCart,
   } = useCart();
 
-  // const [username] = localStorage.getItem("logged-user");
-  // const [price, setPrice] = useState("");
-  // const [title, setTitle] = useState("");
-  // const [quantity, setQuantity] = useState("");
-  // const [date, setDate] = useCart("");
-
-  // function sendToAPI() {
-  // const data = { username, price, title, quantity, date };
-
-  localStorage.setItem("cart-data", JSON.stringify(items));
   const user = localStorage.getItem("logged-user");
-  //const cartData = localStorage.getItem("cart-data");
+
   function submitHandler() {
-    items.map((item) => {
-      return fetch("http://127.0.0.1:7001/api/history/", {
-        method: "POST",
-        body: JSON.stringify({
-          username: user,
-          price: item.price,
-          item_name: item.title,
-          date: Moment(new Date()).format("YYYY-MM-DD"),
-          quantity: item.quantity,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
+    if (user === null) {
+      alert("Please Login to Place the Order.!");
+      return history("/login");
+    } else if (isEmpty === true) {
+      alert("Cart is Empty..!!");
+      return;
+    } else {
+      items.map((item) => {
+        return fetch("http://127.0.0.1:7001/api/history/", {
+          method: "POST",
+          body: JSON.stringify({
+            username: user,
+            price: item.price,
+            item_name: item.title,
+            date: Moment(new Date()).format("YYYY-MM-DD"),
+            quantity: item.quantity,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+        });
       });
-    });
+      history("/checkout");
+    }
   }
+
   return (
     <div>
       <section className="py-4 container" href="123">
@@ -105,17 +109,16 @@ const Cart = () => {
             <button
               className="btn btn-danger m-2"
               onClick={() => {
+                if (isEmpty === true) {
+                  alert("No Items in Cart..!");
+                  return;
+                }
                 emptyCart();
               }}
             >
               Clear cart
             </button>
-            <a
-              class="btn btn-primary"
-              href={"/checkout"}
-              onClick={submitHandler}
-              role="button"
-            >
+            <a class="btn btn-primary" onClick={submitHandler} role="button">
               Place Order
             </a>
           </div>

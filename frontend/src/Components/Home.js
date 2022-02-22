@@ -26,29 +26,33 @@ function Home() {
   };
   return (
     <>
-      <DropdownButton
-        id="dropdown-variants-Warning"
-        title={localStorage.getItem("logged-user")}
-      >
-        <Dropdown.Item
-          onClick={() => {
-            localStorage.removeItem("logged-user");
-            alert("Logged out");
-            emptyCart();
-            window.location.href = "/login";
-          }}
+      {localStorage.getItem("logged-user") === null ? (
+        <div>{}</div>
+      ) : (
+        <DropdownButton
+          id="dropdown-variants-Warning"
+          title={localStorage.getItem("logged-user")}
         >
-          Logout
-        </Dropdown.Item>
-        <Dropdown.Item href={"/history"}>Orders History</Dropdown.Item>
-      </DropdownButton>
+          <Dropdown.Item
+            onClick={() => {
+              localStorage.removeItem("logged-user");
+              alert("Logged out");
+              emptyCart();
+              window.location.href = "/login";
+            }}
+          >
+            Logout
+          </Dropdown.Item>
+          <Dropdown.Item href={"/history"}>Orders History</Dropdown.Item>
+        </DropdownButton>
+      )}
       <div align="right">
         <a class="btn btn-primary" href={"/cart"} role="button">
-          <h3>
+          <h4>
             <span>
               <i class="fas fa-cart-plus"></i>
             </span>
-          </h3>
+          </h4>
         </a>
       </div>
       <div align="right"></div>
